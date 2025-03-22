@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление покупки</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body {
+            background: linear-gradient(180deg, #0d121d, #161e30);
+            background-size: 2000px 2000px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 120px;
+            overflow: hidden;
+        }
+        .header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(15, 20, 35, 0.9);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .nav {
+            display: flex;
+            gap: 5px;
+            border-radius: 30px;
+            margin-bottom: 30px;
+            padding: 5px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav a:hover {
+            transform: scale(1.1);
+            background: linear-gradient(90deg, #9b4dff, #7c3aed);
+            box-shadow: 0 0 15px rgba(123, 58, 237, 0.5);
+        }
+        .nav a:active {
+            transform: scale(0.95);
+        }
+        .nav .active {
+            background: linear-gradient(90deg, #9b4dff, #7c3aed);
+            box-shadow: 0 0 15px rgba(123, 58, 237, 0.7);
+        }
+        .server-box {
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            width: 370px;
+        }
+        .server-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(90deg, #9b4dff, #7c3aed);
+            box-shadow: 0 0 15px rgba(123, 58, 237, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .server-info {
+            flex: 1;
+            color: #fff;
+            text-align: center;
+        }
+        .server-info h3 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .server-info span {
+            font-size: 12px;
+            color: #ddd;
+            font-weight: bold;
+        }
+        .ip {
+            background: linear-gradient(90deg, #9b4dff, #7c3aed);
+            padding: 5px 10px;
+            box-shadow: 0 0 15px rgba(123, 58, 237, 0.5);
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            display: flex;
+            color: #fff;
+            align-items: center;
+            gap: 5px;
+            margin-right: -5px;
+        }
+        .bar {
+            width: 90%;
+            height: 5px;
+            background: #fff;
+            border-radius: 10px;
+            margin: 10px 10px;
+            box-shadow: 0 0 15px rgba(123, 58, 237, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+        .bar::before {
+            content: '';
+            width: 43%;
+            height: 100%;
+            background: linear-gradient(90deg, #9b4dff, #7c3aed);
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 5px;
+        }
+        .frm {
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            margin-top: 100px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 26px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        input, select {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+            outline: none;
+        }
+        input:focus, select:focus {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        input[type="submit"] {
+            background: linear-gradient(90deg, #9b4dff, #7c3aed);
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(123, 58, 237, 0.5);
+        }
+        footer {
+          margin: 90px;
+          color: #4B4670;
+          font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <a href="index.html">Главная</a>
+            <a href="info.html">Привилегий</a>
+            <a href="contact.html">Контакты</a>
+        </div>
+        <div class="server-box">
+            <div class="server-icon">🚀</div>
+            <div class="server-info">
+                <h3>FantasyMC</h3>
+                <span>Онлайн: 0/1000</span>
+                <div class="bar"></div>
+            </div>
+            <div class="ip">fantasy-mc.ru</div>
+        </div>
+    </div>
+
+    <div class="frm">
+        <h1>Оформление покупки</h1>
+        <form id="frm">
+            <input type="text" id="nick" name="nick" placeholder="Введите ваш никнейм" required>
+            <input type="text" id="promo" name="promo" placeholder="Введите промокод (необязательно)">
+            <select id="priv" name="priv" required>
+                <option value="" disabled selected>Выберите привилегию</option>
+                <option value="warlock">Варлок - 399₽</option>
+                <option value="berserk">Берсерк - 599₽</option>
+                <option value="dark">Дарк - 799₽</option>
+                <option value="titan">Титан - 999₽</option>
+                <option value="god">Бог - 1299₽</option>
+                <option value="ares">Арес - 1499₽</option>
+                <option value="zevs">Зевс - 1799₽</option>
+                <option value="cronos">Кронос - 1999₽</option>
+            </select>
+            <input type="submit" value="Приобрести">
+        </form>
+    </div>
+    <footer>
+      <p>© 2025 FantasyMC</p>
+    </footer>
+    <script>
+        document.querySelectorAll(".nav a").forEach(link => {
+            if (link.getAttribute("href") === window.location.pathname.split("/").pop()) {
+                link.classList.add("active");
+            }
+        });
+    </script>
+</body>
+</html>
